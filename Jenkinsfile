@@ -12,11 +12,11 @@ pipeline {
             steps {
                 bat 'npm run test:ci'
             }
+            post {
+                always {
+                    junit "logs/*.xml"
+                }
+            }
         }
-		post {
-			always {
-				junit "logs/*.xml"
-			}
-		}
     }     
 }
